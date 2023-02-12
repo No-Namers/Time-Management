@@ -1,4 +1,5 @@
-#logan is probably the manager of this file
-#yikers
-if(nothing)
-return 1
+def main():
+    print("Hello World!")
+
+if __name__ == "__main__":
+    main()
