@@ -1,7 +1,11 @@
 import tkinter as tk
-from english_words import english_words_lower_alpha_set
+#from english_words import english_words_lower_alpha_set
 from random import choice
 import re
+
+
+f = open('english_words.txt', 'r')
+english_words_lower_alpha_set = f.read().splitlines()
 
 window = tk.Tk()
 window.title("Word Finder")
