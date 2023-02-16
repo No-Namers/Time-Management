@@ -32,6 +32,7 @@ def main():
         except ValueError:
             txt.setText("Invalid date. Please try again.")
             input_box.setText("")
+    cal(date, win)
 
         
     win.getMouse()
@@ -42,7 +43,7 @@ def main():
     #cal(date)
 
 #Function
-def cal(date):
+def cal(date, win):
     #define the calendar
     textCal = calendar.TextCalendar(firstweekday=0)
     
@@ -51,11 +52,16 @@ def cal(date):
     day=int(day)
     year=int(year)
 
-    #print the calendar
-    textCal.formatmonth(year, month, w=0, l=0)
-    textCal.prmonth(year, month, w=0, l=0)
+    #create a Text object to hold the calendar output
+    calText = Text(Point(250, 250), "")
+    calText.setSize(14)
+    calText.setFace('courier')
+    calText.draw(win)
 
-    #print(calendar.calendar(year))
+    #set the text to the calendar output
+    calOutput = textCal.formatmonth(year, month, w=0, l=0)
+    calText.setText(calOutput)
+
 
 if __name__ == "__main__":
     main()
