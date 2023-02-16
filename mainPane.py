@@ -1,6 +1,7 @@
 import calendar
 from graphics import *
 import datetime as dt
+import todoListPane as tlp
 
 def main():
     win = GraphWin("Calendar", 500, 500)
@@ -23,6 +24,14 @@ def main():
     searchtext=Text(Point(40, 470), "Search")
     searchtext.setTextColor(color_rgb(255,255,255))
     searchtext.draw(win)
+
+    todorec=Rectangle(Point(100, 450), Point(170, 490))
+    todorec.setFill(color_rgb(0,0,255))
+    todorec.draw(win)
+
+    todotext=Text(Point(135, 470), "ToDoList")
+    todotext.setTextColor(color_rgb(255,255,255))
+    todotext.draw(win)
 
     #create a Text object to hold the calendar output
     calText = Text(Point(250, 250), "")
@@ -66,11 +75,14 @@ def main():
             except ValueError:
                 txt.setText("Invalid date. Please try again.")
                 input_box.setText("")
+        elif click_point.getX()>=100 and click_point.getX()<=170 and click_point.getY()>=450 and click_point.getY()<=490:
+            tlp.showtodoListPane(win,date)
     
 
     click_point=win.getMouse()
     if click_point.getX()>=450 and click_point.getX()<=490 and click_point.getY()>=450 and click_point.getY()<=490:
         win.close()
+    
 
 
 #Need to make days clickable for user to add events and tasks
@@ -107,9 +119,6 @@ def cal(date, win,calText):
     calText.setText(calOutput)
 
 
-def showToDoList(date, win):
-    #That day's to do list
-    print("To Do List for " + date + ":")
 
 if __name__ == "__main__":
     main()
