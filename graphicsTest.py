@@ -31,7 +31,7 @@ def main():
     calText.draw(win)
 
     today = dt.date.today()
-    cal(today.strftime("%x"), win, calText)
+    cal(today.strftime("%m/%d/%Y"), win, calText)
 
     txt = Text(Point(250, 15), "Enter the date in the format of mm/dd/yyyy:")
     txt.setTextColor(color_rgb(0,0,0))
