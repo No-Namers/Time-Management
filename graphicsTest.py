@@ -1,6 +1,6 @@
 import calendar
 from graphics import *
-import datetime
+import datetime as dt
 
 def main():
     win = GraphWin("Calendar", 500, 500)
@@ -29,6 +29,9 @@ def main():
     calText.setSize(14)
     calText.setFace('courier')
     calText.draw(win)
+
+    today = dt.date.today()
+    cal(today.strftime("%x"), win, calText)
 
     txt = Text(Point(250, 15), "Enter the date in the format of mm/dd/yyyy:")
     txt.setTextColor(color_rgb(0,0,0))
@@ -86,8 +89,6 @@ def cal(date, win,calText):
     month=int(month)
     day=int(day)
     year=int(year)
-
-    
 
     #set the text to the calendar output
     calOutput = textCal.formatmonth(year, month, w=0, l=0)
