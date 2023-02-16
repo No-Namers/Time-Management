@@ -62,11 +62,15 @@ def main():
     if click_point.getX()>=450 and click_point.getX()<=490 and click_point.getY()>=450 and click_point.getY()<=490:
         win.close()
 
-    #print("Welcome to our calendar")
-    #date=input("Enter the date in the format of mm/dd/yyyy: ")
-    #cal(date)
 
-#Function
+#Need to make days clickable for user to add events and tasks
+#i think we will have to print out parts of the calendar individually so that we can make the days clickable
+#not sure how to do this yet
+
+#or we could search if the user types in the full date (mm/dd/yyyy) and then print out the calendar for 
+#that month as well as the todo list for that day
+#this is probably the easiest way to do it
+#and if the user types in a month and year, we just can print out the calendar for that month
 def cal(date, win):
     #define the calendar
     textCal = calendar.TextCalendar(firstweekday=0)
@@ -86,6 +90,10 @@ def cal(date, win):
     calOutput = textCal.formatmonth(year, month, w=0, l=0)
     calText.setText(calOutput)
 
+
+def showToDoList(date, win):
+    #That day's to do list
+    print("To Do List for " + date + ":")
 
 if __name__ == "__main__":
     main()
