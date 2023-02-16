@@ -6,6 +6,14 @@ def main():
     win = GraphWin("My Window", 500, 500)
     #win.setBackground(color_rgb(0,0,0))
 
+    exitrec=Rectangle(Point(450, 450), Point(490, 490))
+    exitrec.setFill(color_rgb(255,0,0))
+    exitrec.draw(win)
+
+    exittext=Text(Point(470, 470), "Exit")
+    exittext.setTextColor(color_rgb(255,255,255))
+    exittext.draw(win)
+
     txt = Text(Point(250, 15), "Enter the date in the format of mm/dd/yyyy:")
     txt.setTextColor(color_rgb(0,0,0))
     txt.setSize(14)
@@ -19,7 +27,11 @@ def main():
     txt.draw(win)
 
     while True:
-        win.getMouse()
+        click_point=win.getMouse()
+        if click_point.getX()>=450 and click_point.getX()<=490 and click_point.getY()>=450 and click_point.getY()<=490:
+            win.close()
+            break
+        txt.setText("")
         date=input_box.getText()
         try:
             month,day,year=date.split("/")
@@ -35,8 +47,9 @@ def main():
     cal(date, win)
 
         
-    win.getMouse()
-    win.close()
+    click_point=win.getMouse()
+    if click_point.getX()>=450 and click_point.getX()<=490 and click_point.getY()>=450 and click_point.getY()<=490:
+        win.close()
 
     #print("Welcome to our calendar")
     #date=input("Enter the date in the format of mm/dd/yyyy: ")
