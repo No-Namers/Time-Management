@@ -43,7 +43,7 @@ def main():
             break
         txt.setText("")
         date=input_box.getText()
-        if click_point.getX()>=10 and click_point.getX()<=50 and click_point.getY()>=450 and click_point.getY()<=490:
+        if click_point.getX()>=10 and click_point.getX()<=70 and click_point.getY()>=450 and click_point.getY()<=490:
             try:
                 month,day,year=date.split("/")
                 month=int(month)
