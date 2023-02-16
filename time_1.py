@@ -6,6 +6,8 @@ def main():
     win = GraphWin("My Window", 500, 500)
     #win.setBackground(color_rgb(0,0,0))
 
+    pt=Point(0, 0)
+
     exitrec=Rectangle(Point(450, 450), Point(490, 490))
     exitrec.setFill(color_rgb(255,0,0))
     exitrec.draw(win)
@@ -40,13 +42,13 @@ def main():
             year=int(year)
             if month>12 or month<1 or day>31 or day<1 or year>9999 or year<1:
                 raise ValueError
-            break
+            else:
+                cal(date, win)
         except ValueError:
             txt.setText("Invalid date. Please try again.")
             input_box.setText("")
-    cal(date, win)
+    
 
-        
     click_point=win.getMouse()
     if click_point.getX()>=450 and click_point.getX()<=490 and click_point.getY()>=450 and click_point.getY()<=490:
         win.close()
