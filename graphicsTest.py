@@ -92,6 +92,18 @@ def cal(date, win,calText):
 
     #set the text to the calendar output
     calOutput = textCal.formatmonth(year, month, w=0, l=0)
+
+    first_day, num_days = calendar.monthrange(year, month)
+    # get the day of the week for the last day of the month
+    last_day = (first_day + num_days - 1) % 7
+    # calculate the number of days left in the last week
+    days_left = 6 - last_day
+    
+    #remove the last \n from calOutput
+    calOutput = calOutput[:-1]
+
+    #add spaces to the end of the calendar
+    calOutput += " " * (days_left * 3)
     calText.setText(calOutput)
 
 
