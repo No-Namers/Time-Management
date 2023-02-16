@@ -16,6 +16,14 @@ def main():
     exittext.setTextColor(color_rgb(255,255,255))
     exittext.draw(win)
 
+    searchrec=Rectangle(Point(10, 450), Point(50, 490))
+    searchrec.setFill(color_rgb(0,255,0))
+    searchrec.draw(win)
+
+    searchtext=Text(Point(30, 470), "Search")
+    searchtext.setTextColor(color_rgb(255,255,255))
+    searchtext.draw(win)
+
     txt = Text(Point(250, 15), "Enter the date in the format of mm/dd/yyyy:")
     txt.setTextColor(color_rgb(0,0,0))
     txt.setSize(14)
@@ -35,18 +43,19 @@ def main():
             break
         txt.setText("")
         date=input_box.getText()
-        try:
-            month,day,year=date.split("/")
-            month=int(month)
-            day=int(day)
-            year=int(year)
-            if month>12 or month<1 or day>31 or day<1 or year>9999 or year<1:
-                raise ValueError
-            else:
-                cal(date, win)
-        except ValueError:
-            txt.setText("Invalid date. Please try again.")
-            input_box.setText("")
+        if click_point.getX()>=10 and click_point.getX()<=50 and click_point.getY()>=450 and click_point.getY()<=490:
+            try:
+                month,day,year=date.split("/")
+                month=int(month)
+                day=int(day)
+                year=int(year)
+                if month>12 or month<1 or day>31 or day<1 or year>9999 or year<1:
+                    raise ValueError
+                else:
+                    cal(date, win)
+            except ValueError:
+                txt.setText("Invalid date. Please try again.")
+                input_box.setText("")
     
 
     click_point=win.getMouse()
