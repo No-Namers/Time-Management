@@ -3,7 +3,7 @@ from graphics import *
 import datetime
 
 def main():
-    win = GraphWin("My Window", 500, 500)
+    win = GraphWin("Calendar", 500, 500)
     #win.setBackground(color_rgb(0,0,0))
 
     pt=Point(0, 0)
@@ -16,11 +16,11 @@ def main():
     exittext.setTextColor(color_rgb(255,255,255))
     exittext.draw(win)
 
-    searchrec=Rectangle(Point(10, 450), Point(50, 490))
+    searchrec=Rectangle(Point(10, 450), Point(70, 490))
     searchrec.setFill(color_rgb(0,255,0))
     searchrec.draw(win)
 
-    searchtext=Text(Point(30, 470), "Search")
+    searchtext=Text(Point(40, 470), "Search")
     searchtext.setTextColor(color_rgb(255,255,255))
     searchtext.draw(win)
 
