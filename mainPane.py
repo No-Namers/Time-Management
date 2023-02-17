@@ -76,7 +76,7 @@ def main():
                 txt.setText("Invalid date. Please try again.")
                 input_box.setText("")
         elif click_point.getX()>=100 and click_point.getX()<=170 and click_point.getY()>=450 and click_point.getY()<=490:
-            tlp.showtodoListPane(win,date)
+            tlp.showtodoListPane(date)
     
 
     click_point=win.getMouse()

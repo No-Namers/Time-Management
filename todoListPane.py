@@ -2,7 +2,7 @@ import calendar
 from graphics import *
 import datetime as dt
 
-def showtodoListPane(win, date):
+def showtodoListPane(date):
 
     win = GraphWin("ToDoList", 500, 500)
     #win.setBackground(color_rgb(0,0,0))
@@ -30,14 +30,6 @@ def showtodoListPane(win, date):
     dateText.setSize(14)
     dateText.setFace('courier')
     dateText.draw(win)
-
-    while True:
-        click_point=win.getMouse()
-        if click_point.getX()>=450 and click_point.getX()<=490 and click_point.getY()>=450 and click_point.getY()<=490:
-            win.close()
-            break
-        elif click_point.getX()>=10 and click_point.getX()<=100 and click_point.getY()>=450 and click_point.getY()<=490:
-            createTask(win, date)
 
     click_point=win.getMouse()
     if click_point.getX()>=450 and click_point.getX()<=490 and click_point.getY()>=450 and click_point.getY()<=490:
