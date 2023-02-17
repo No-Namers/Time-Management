@@ -118,6 +118,15 @@ def cal(date, win,calText):
     calOutput += " " * (days_left * 3)
     calText.setText(calOutput)
 
+    for i in range(1, num_days+1):
+        xPos = (i + first_day - 1) % 7
+        yPos = (i + first_day - 1) // 7
+        
+        Pos1 = Point(150 + xPos * 30, 210 + yPos * 30)
+        size = Point(Pos1.getX() + 20, Pos1.getY() + 20)
+
+        calButtons = Rectangle(Pos1,size)
+        calButtons.draw(win)
 
 
 if __name__ == "__main__":
